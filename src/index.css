@@ -1,0 +1,125 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Space Grotesk", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  --color-bg: #05060a;
+  --color-surface: #0b1018;
+  --color-fg: #eaf6ff;
+  --color-muted: #7c93a6;
+  --color-accent: #00e5ff;
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--color-bg);
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: var(--color-bg);
+  color: var(--color-fg);
+  font-family: var(--font-body);
+  text-rendering: geometricPrecision;
+}
+
+img,
+svg,
+video,
+canvas {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+a,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+::selection {
+  background: rgba(0, 229, 255, 0.28);
+  color: var(--color-fg);
+}
+
+/* Cursor piscando do efeito de digitação */
+.typed-cursor {
+  display: inline-block;
+  width: 0.55ch;
+  height: 1.05em;
+  margin-left: 0.12em;
+  vertical-align: text-bottom;
+  background: var(--color-accent);
+  box-shadow: 0 0 12px rgba(0, 229, 255, 0.8);
+  animation: blink 1.05s steps(2, start) infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Grade tecnológica discreta do hero */
+.hero-grid {
+  background-image:
+    linear-gradient(rgba(0, 229, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 229, 255, 0.05) 1px, transparent 1px);
+  background-size: 44px 44px;
+  -webkit-mask-image: radial-gradient(ellipse at 62% 45%, black 25%, transparent 72%);
+  mask-image: radial-gradient(ellipse at 62% 45%, black 25%, transparent 72%);
+}
+
+.text-glow {
+  text-shadow: 0 0 28px rgba(0, 229, 255, 0.35);
+}
+
+/* Botão com brilho ciano */
+.btn-glow {
+  box-shadow:
+    0 0 22px rgba(0, 229, 255, 0.32),
+    inset 0 0 0 1px rgba(0, 229, 255, 0.45);
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.btn-glow:hover {
+  box-shadow:
+    0 0 44px rgba(0, 229, 255, 0.5),
+    inset 0 0 0 1px rgba(0, 229, 255, 0.65);
+}
+
+/* Card com brilho na borda ao passar o mouse */
+.card-glow {
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.card-glow:hover {
+  border-color: rgba(0, 229, 255, 0.45);
+  box-shadow: 0 0 34px rgba(0, 229, 255, 0.12);
+  transform: translateY(-3px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
